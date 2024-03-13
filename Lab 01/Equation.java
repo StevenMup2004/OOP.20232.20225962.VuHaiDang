@@ -57,10 +57,10 @@ public class Equation {
                 System.out.println("System has no solution");
             }
         } else {
-            double x = (b1 * a22 - b2 * a12) / determinant;
-            double y = (a11 * b2 - a21 * b1) / determinant;
-            System.out.println("x = " + x);
-            System.out.println("y = " + y);
+            double x1 = (b1 * a22 - b2 * a12) / determinant;
+            double x2 = (a11 * b2 - a21 * b1) / determinant;
+            System.out.println("x1 = " + x1);
+            System.out.println("x2 = " + x2);
         }
     }
     public static void second_degree_equation(Scanner scanner) {
