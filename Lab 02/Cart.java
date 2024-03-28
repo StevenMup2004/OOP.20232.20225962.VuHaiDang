@@ -32,6 +32,7 @@ public class Cart {
         System.out.println(" Discs have been added.");
         }
     }
+    
     /* public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
     int total = qtyOrdered + dvds.length;
     if (total > MAX_NUMBERS_ORDERED) {
