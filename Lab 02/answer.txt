@@ -23,7 +23,6 @@ When swap modifies o1 and o2, it only modifies the copies of the references, not
 Thus, the original objects remain unchanged, and their titles are not affected.
 
 Question 5: After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed? 
-The title of the JungleDVD changed because in the changeTitle method, the title of the dvd object is changed using the setTitle method.
-Since jungleDVD is passed as an argument to changeTitle, a copy of the reference to the jungleDVD object is received.
+The title of the JungleDVD changed because in the changeTitle method, jungleDVD is passed as an argument to changeTitle, a copy of the reference to the jungleDVD object is received.
 Inside this method, changes to the state of the object affect the original object because the reference points to the same object in memory.
 Therefore, when the title is changed using setTitle, it reflects the change in the original jungleDVD object outside of the method.
