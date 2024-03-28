@@ -1,5 +1,4 @@
 package Aims;
-
 public class Aims {
      public static void main(String[] args) {
     	 
@@ -14,9 +13,12 @@ public class Aims {
     	DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f); 
     	anOrder.addDigitalVideoDisc(dvd3);
 
-    	System.out.println("Total Cost is: "); 
+    	anOrder.displayCartItems();
     	
-    	System.out.println(anOrder.totalCost());
+		System.out.printf("   Total Cost:          %.2f%n", anOrder.totalCost());
+    	
+    
+    	
      
      }
 }
