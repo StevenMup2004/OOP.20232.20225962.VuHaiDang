@@ -73,7 +73,9 @@ public class DigitalVideoDisc {
 	                + cost + "$");
 	    }
 	
-	
+	   public boolean isMatch(String title) {
+	        return title.equals(this.title);
+	    }
 	
     
 }
