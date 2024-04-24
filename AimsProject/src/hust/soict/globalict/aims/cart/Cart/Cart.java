@@ -126,7 +126,7 @@ public class Cart {
 
         for (int i = 0; i < qtyOrdered; i++) {
             if (itemsOrdered[i].getId() == id) {
-                System.out.println(itemsOrdered[i].toString());
+            	itemsOrdered[i].printDVD();
                 found = true;
                 break;
             }
@@ -141,10 +141,10 @@ public class Cart {
         boolean found = false;
         System.out.println("Search results for title \"" + title + "\":");
 
-        for (int i = 0; i < qtyOrdered; i++) {
-            if (itemsOrdered[i].getTitle().equals(title)) {
-                System.out.println(itemsOrdered[i].toString());
+        for (DigitalVideoDisc dvd: itemsOrdered) {
+            if (dvd != null && dvd.isMatch(title)) {
                 found = true;
+                dvd.printDVD();
             }
         }
 
@@ -152,6 +152,8 @@ public class Cart {
             System.out.println("No match found for title \"" + title + "\"");
         }
     }
+   
+    
 }
     
 

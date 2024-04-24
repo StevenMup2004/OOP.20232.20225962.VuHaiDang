@@ -23,6 +23,7 @@ public class CartTest {
 	cart.print();
     
 	//To-do: Test the search methods here
-
+	cart.searchByTitle("The Lion King");
+	cart.searchById(4);
 }
 }
