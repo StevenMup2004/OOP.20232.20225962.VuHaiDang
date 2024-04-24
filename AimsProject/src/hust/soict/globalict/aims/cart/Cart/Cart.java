@@ -102,7 +102,7 @@ public class Cart {
         }
     }
 
-    public void printOrderedItems() {
+    public void print() {
         if (qtyOrdered == 0) {
             System.out.println("The cart is empty");
             return;
@@ -111,8 +111,9 @@ public class Cart {
         System.out.println("***********************CART***********************");
         System.out.println("Ordered Items:");
 
-        for (int i = 0; i < qtyOrdered; i++) {
-            System.out.printf("%d. %s%n", (i + 1), itemsOrdered[i].toString());
+        for (DigitalVideoDisc dvd : itemsOrdered) {
+            if (dvd != null)
+                dvd.printDVD();
         }
 
         System.out.printf("Total cost: %.2f $%n", totalCost());

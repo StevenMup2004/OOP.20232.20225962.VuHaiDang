@@ -64,6 +64,14 @@ public class DigitalVideoDisc {
 		nbDigitalVideoDiscs++;
      this.id = nbDigitalVideoDiscs;
 	}
+	  public void printDVD() {
+	        System.out.println(id + ". DVD - "
+	                + title + " - "
+	                + category + " - "
+	                + director + " - "
+	                + length + ": "
+	                + cost + "$");
+	    }
 	
 	
 	
