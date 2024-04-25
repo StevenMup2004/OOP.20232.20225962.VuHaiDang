@@ -1,42 +1,61 @@
 package hust.soict.globalict.aims.media;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-
-public class Book extends Media {
+public class Book extends Media{
+	private int id;
 	private List<String> authors = new ArrayList<String>();
-	
-	public Book(int id, String title, String category, float cost)  {
-		super(id, title, category, cost);
+	public Book() {
+		// TODO Auto-generated constructor stub
 	}
-
-	public List<String> getAuthors() {
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	private List<String> getAuthors() {
 		return authors;
 	}
-
-	public void setAuthors(List<String> authors) {
+	private void setAuthors(List<String> authors) {
 		this.authors = authors;
 	}
-	
 	public void addAuthor(String authorName) {
-		if (authors.contains(authorName)) {
-			System.out.println("The author's already there");
-			return;
+		int check = 0;
+		for (int i = 0; i < authors.size(); i++ ) {
+			if (authors.get(i).equals(authorName)) {
+				System.out.println("This author is already in the list");
+				check += 1;
+			}
 		}
-		authors.add(authorName);
-		System.out.println("Successfully added");
+		if (check == 0) {
+			authors.add(authorName);
+			System.out.println("This author's name has been added to the list");
+		}
 	}
-	
 	public void removeAuthor(String authorName) {
-		if (authors.contains(authorName)) {
-			authors.remove(authorName);
-			System.out.println("Successfully removed");
-			return;
+		int index = -1;
+		for (int i = 0; i < authors.size(); i ++) {
+			if (authors.get(i).equals(authorName)) {
+				index = i;
+			}
 		}
-		System.out.println("Author's name not found");
+		if (index == -1) {
+			System.out.println("This author's name is not in the list");
+		}
+		else {
+			authors.remove(index);
+			System.out.println("This author's name has been removed");
+		}
 	}
+
 	
 	public String toString() {
-		return String.format("Book - %s - %s: %.2f$", this.getTitle(), this.getCategory(), this.getCost());
+	    String s = "Book - " + this.getTitle() + " - " + this.getCategory() + ": " + this.getCost() + " $";
+	    return s;
 	}
+
+	
+
 }
