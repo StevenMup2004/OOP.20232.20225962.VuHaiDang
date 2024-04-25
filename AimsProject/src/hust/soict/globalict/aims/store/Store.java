@@ -29,7 +29,7 @@ public class Store {
             itemCount--;
             System.out.println("DVD has been removed from the store.");
         } else {
-            System.out.println("DVD is not found.");
+            System.out.println("DVD is not found in the store.");
         }
     }
 
