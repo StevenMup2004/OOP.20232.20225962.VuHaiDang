@@ -16,27 +16,27 @@ public class Store {
 
 	public void addMedia(Media disc) {
 		if (itemsInStore.contains(disc)) {
-			System.out.println("The disc's already there");
+			System.out.println("The disc's already in the store");
 			return;
 		}
 		itemsInStore.add(disc);
-		System.out.println("Successfully added");
+		System.out.println("The disc's successfully added");
 	}
 	
 	public void removeMedia(Media disc) {
 		if (itemsInStore.contains(disc)) {
 			itemsInStore.remove(disc);
-			System.out.println("Successfully removed");
+			System.out.println("The disc's successfully removed");
 			return;
 		}
-		System.out.println("Disc not found");
+		System.out.println("The disc is not found in the store");
 	}
 	
 	public void print() {
 		System.out.println("**********************STORE**********************");
 		System.out.println("Items In Store:");
-		for (Media m: itemsInStore) {
-			System.out.println(m);
+		for (Media t: itemsInStore) {
+			System.out.println(t);
 		}
 		System.out.println("*************************************************");
 	}
