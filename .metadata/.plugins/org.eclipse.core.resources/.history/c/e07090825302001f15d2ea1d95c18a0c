@@ -1,0 +1,28 @@
+
+package Aims;
+
+import hust.soict.globalict.aims.cart.Cart.Cart;
+import hust.soict.globalict.aims.disc.DigitalVideoDisc.DigitalVideoDisc;
+
+public class Test {
+public static void main(String[] args) {
+    	 
+    	Cart anOrder = new Cart();
+		DigitalVideoDisc item[] = new DigitalVideoDisc[3];
+        item[0]= new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f); 
+        
+
+    	 item[1] = new DigitalVideoDisc ("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f); 
+    	
+		 item[2] = new DigitalVideoDisc("Aladin", "Animation", 18.99f); 
+	 
+		anOrder.addDigitalVideoDisc(item);
+		anOrder.displayCartItems();
+        System.out.printf("   Total Cost:          %.2f%n", anOrder.totalCost());
+		anOrder.displayCartItems();
+		System.out.printf("   Total Cost:          %.2f%n", anOrder.totalCost());
+		anOrder.removeDigitalVideoDisc(item[0]);
+		anOrder.displayCartItems();
+		System.out.printf("   Total Cost:          %.2f%n", anOrder.totalCost());
+}	
+}
