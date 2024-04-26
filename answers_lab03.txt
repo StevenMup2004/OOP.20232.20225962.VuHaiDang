@@ -1,0 +1,53 @@
+
+
+- What class should implement the Comparable interface? 
+In case we need to compare Media with each other by implementing Comparable instead of Comparator,
+then we need to let the Media class implement the Comparable interface instead of creating a separate class for each Comparator.
+
+
+
+- In those classes, how should you implement the compareTo()method to reflect the ordering that we want?
+public abstract class Media implements Comparable<Media> {
+    public int compareTo(Media otherMedia) {
+        return this.title.compareTo(otherMedia.getTitle());
+    }
+}
+
+
+-Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach? 
+
+Yes, we can do like below:
+public abstract class Media implements Comparable<Media> {
+    public int compareTo(Media otherMedia) {
+        
+        int titleComparison = this.title.compareTo(otherMedia.getTitle());
+        return (titleComparison == 0) ? Float.compare(this.cost, otherMedia.getCost()) : titleComparison;
+    }
+}
+
+
+-Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this? 
+
+public class DVD extends Media {
+
+    public int compareTo(Media otherMedia) {
+        if (otherMedia instanceof DVD) {
+            DVD otherDVD = (DVD) otherMedia;
+
+            
+            int titleComparison = getTitle().compareTo(otherDVD.getTitle());
+
+            if (titleComparison == 0) {
+                int lengthComparison = Integer.compare(otherDVD.getLength(), getLength());
+                return (lengthComparison == 0) ? Float.compare(getCost(), otherDVD.getCost()) : lengthComparison;
+            }
+
+            return titleComparison;
+        } 
+        
+
+        else {
+            return super.compareTo(otherMedia);
+        }
+    }
+}

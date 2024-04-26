@@ -22,18 +22,19 @@ public class CompactDisc extends Disc implements Playable{
 		return tracks;
 	}
 
-	public void setTracks(ArrayList<Track> tracks) {
-		this.tracks = tracks;
-	}
-
-	public void setArtist(String artist) {
-		this.artist = artist;
-	}
-
 	public String getArtist() {
 		return artist;
 	}
 
+	public int getLength() {
+		int sum = 0;
+		for (Track t: tracks) {
+			sum += t.getLength();
+		}
+		return sum;
+	}
+	
+	
 	public void addTrack(Track aTrack) {
 		if (tracks.contains(aTrack)) {
 			System.out.println("The track's already there.");
@@ -52,13 +53,6 @@ public class CompactDisc extends Disc implements Playable{
 		System.out.println("Track is not found");
 	}
 	
-	public int getLength() {
-		int sum = 0;
-		for (Track t: tracks) {
-			sum += t.getLength();
-		}
-		return sum;
-	}
 	
 	public void play() {
 		System.out.printf("CD %s from artist %s.\nThis CD contains %dtracks.",
