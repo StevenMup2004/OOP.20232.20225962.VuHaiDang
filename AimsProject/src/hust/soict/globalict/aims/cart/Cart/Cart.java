@@ -59,7 +59,7 @@ public class Cart {
 		for (Media d: itemsOrdered) {
 			System.out.printf("%d. %s", ++i, d);
 		}
-		System.out.printf("Total cost: %.2f\n***************************************************",
+		System.out.printf("\nTotal cost: %.2f\n***************************************************",
 										 this.totalCost());
 	}
 	
