@@ -1,7 +1,8 @@
 package hust.soict.globalict.aims.Aims;
 import hust.soict.globalict.aims.cart.Cart.*;
 import hust.soict.globalict.aims.media.*;
-import hust.soict.globalict.aims.store.*; 
+import hust.soict.globalict.aims.store.*;
+
 
 import java.util.*;
 
@@ -382,9 +383,9 @@ public class Aims {
 	
 	public static void main(String[] args) {
 		List<Media> mediae = new ArrayList<Media>();
-		CompactDisc cd = new CompactDisc("abc", "ct", "Nguyen Van A", 3, "VG", 1.23f);
-		DigitalVideoDisc dvd = new DigitalVideoDisc("X");
-		Book book = new Book("sh", "nf", 10.0f);
+		CompactDisc cd = new CompactDisc("The Lion King", "Animation","Roger Allers", 87, "VG", 1.23f);
+		DigitalVideoDisc dvd = new  DigitalVideoDisc("Aladin", "Animation", 18.99f); 
+		Book book = new Book("Star Wars", "Science Fiction", 10.0f);
 		
 		mediae.add(cd);
 		mediae.add(dvd);
@@ -394,8 +395,8 @@ public class Aims {
 		store.addMedia(dvd);
 		store.addMedia(book);
 		
-		for(Media m: mediae) {
-			System.out.println(m.toString());
+		for(Media s: mediae) {
+			System.out.println(s.toString());
 		}
 		
 		showMenu();
