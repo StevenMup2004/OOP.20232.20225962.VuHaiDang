@@ -1,6 +1,6 @@
 
 
-- What class should implement the Comparable interface? 
+Question 1: What class should implement the Comparable interface? 
 In case we need to compare Media with each other by implementing Comparable instead of Comparator,
 then we need to let the Media class implement the Comparable interface instead of creating a separate class for each Comparator.
 
@@ -14,7 +14,7 @@ public abstract class Media implements Comparable<Media> {
 }
 
 
--Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach? 
+Question 2:Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach? 
 
 Yes, we can do like below:
 public abstract class Media implements Comparable<Media> {
@@ -26,7 +26,7 @@ public abstract class Media implements Comparable<Media> {
 }
 
 
--Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this? 
+Question 3:Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this? 
 
 public class DVD extends Media {
 
