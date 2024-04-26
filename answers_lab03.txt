@@ -6,7 +6,7 @@ then we need to let the Media class implement the Comparable interface instead o
 
 
 
-- In those classes, how should you implement the compareTo()method to reflect the ordering that we want?
+Question 2: In those classes, how should you implement the compareTo()method to reflect the ordering that we want?
 public abstract class Media implements Comparable<Media> {
     public int compareTo(Media otherMedia) {
         return this.title.compareTo(otherMedia.getTitle());
@@ -14,7 +14,7 @@ public abstract class Media implements Comparable<Media> {
 }
 
 
-Question 2:Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach? 
+Question 3:Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach? 
 
 Yes, we can do like below:
 public abstract class Media implements Comparable<Media> {
@@ -26,7 +26,7 @@ public abstract class Media implements Comparable<Media> {
 }
 
 
-Question 3:Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this? 
+Question 4:Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this? 
 
 public class DVD extends Media {
 
