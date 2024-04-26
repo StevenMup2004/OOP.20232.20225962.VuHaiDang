@@ -1,5 +1,7 @@
 package hust.soict.globalict.aims.media;
 
+import java.util.Comparator;
+
 public abstract class Media {
 
 	private int id;
@@ -7,6 +9,8 @@ public abstract class Media {
 	private String category;
 	private float cost;
 	private static int nbMedia;
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 	
 	public Media() {
 		// TODO Auto-generated constructor stub
@@ -51,4 +55,17 @@ public abstract class Media {
 		this.cost = cost;
 	}
 
+
+	public boolean equals(Object o) {
+		if (o instanceof Media) {
+			Media O = (Media)o;
+			return this.title.equals(O.getTitle());
+		}
+		return false;		
+	}
+	
+	public String toString() {
+		String s = "Book - " + this.getTitle() + " - " + this.getCategory() + ": " + this.getCost() + " $";
+	    return s;
+	}
 }
