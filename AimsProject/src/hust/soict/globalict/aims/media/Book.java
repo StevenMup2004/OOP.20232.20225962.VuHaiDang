@@ -21,9 +21,6 @@ public class Book extends Media{
 	private List<String> getAuthors() {
 		return authors;
 	}
-	private void setAuthors(List<String> authors) {
-		this.authors = authors;
-	}
 	public void addAuthor(String authorName) {
 		int check = 0;
 		for (int i = 0; i < authors.size(); i++ ) {
