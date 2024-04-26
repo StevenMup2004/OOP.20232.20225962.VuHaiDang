@@ -18,7 +18,6 @@ public class StoreTest {
 		store.addDVD(dvd3);
 		store.addDVD(dvd1);
 		store.removeDVD(dvd2.getId());
-		store.removeDVD(5);
 		store.addDVD(dvd2);
 		
 	}
