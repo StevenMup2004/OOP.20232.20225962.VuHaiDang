@@ -57,10 +57,10 @@ public class Cart {
 		System.out.println("***********************CART***********************\n" + "Ordered Items:");
 		int i = 0;
 		for (Media d: itemsOrdered) {
-			System.out.println(String.format("%d. %s", ++i, d));
+			System.out.printf("%d. %s", ++i, d);
 		}
-		System.out.println(String.format("Total cost: %.2f\n***************************************************",
-										 this.totalCost()));
+		System.out.printf("Total cost: %.2f\n***************************************************",
+										 this.totalCost());
 	}
 	
 	public boolean search(int ID) {
