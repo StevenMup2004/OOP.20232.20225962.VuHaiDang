@@ -1,4 +1,4 @@
-package hust.soict.globalict.aims.cart.Cart;
+package hust.soict.globalict.aims.cart;
 import hust.soict.globalict.aims.media.*;
 import java.util.ArrayList;
 

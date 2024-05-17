@@ -13,14 +13,15 @@ public class StoreManagerScreen extends JFrame {
 	private Store store;
 	JPanel centerPanel;
 	
+	
 	public StoreManagerScreen(Store store) {
 		this.store = store;
 
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
 		cp.add(createNorth(), BorderLayout.NORTH);
-		cp.add(createCenter(), BorderLayout.CENTER);
-		
+		centerPanel = createCenter();
+		cp.add(centerPanel, BorderLayout.CENTER);
 		setTitle("Store");
 		setSize(1024, 768);
 		setLocationRelativeTo(null);
@@ -40,6 +41,7 @@ public class StoreManagerScreen extends JFrame {
 		
 		JMenuItem viewStoreMenu = new JMenuItem("View store");
 		menu.add(viewStoreMenu);
+		viewStoreMenu.addActionListener(new btnMenuListener());
 		
 		JMenu smUpdateStore = new JMenu("Update store");
 		JMenuItem addBookMenu = new JMenuItem("Add Book");
@@ -51,6 +53,9 @@ public class StoreManagerScreen extends JFrame {
 		smUpdateStore.add(addDVDMenu);
 		menu.add(smUpdateStore);
 		
+		addBookMenu.addActionListener(new btnMenuListener());
+		addDVDMenu.addActionListener(new btnMenuListener());
+		addCDMenu.addActionListener(new btnMenuListener());
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -79,7 +84,6 @@ public class StoreManagerScreen extends JFrame {
 		
 		JPanel center = new JPanel();
 		center.setLayout(new GridLayout(3, 3, 2, 2));
-		
 		ArrayList<Media> mediaInStore = store.getItemsInStore();
 		for (int i=0; i<mediaInStore.size(); i++) {
 			MediaStore cell = new MediaStore(mediaInStore.get(i));
@@ -89,6 +93,28 @@ public class StoreManagerScreen extends JFrame {
 		return center;
 	}
 	
+	private class btnMenuListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String command = e.getActionCommand();
+			if (command.equals("Add DVD")) {
+				JFrame S=new AddDigitalVideoDiscToStoreScreen(store);
+				S.setVisible(true);
+				 S.setLocationRelativeTo(null);
+			} else if (command.equals("Add Book")) {
+				JFrame S=new AddBookToStoreScreen(store);
+				S.setVisible(true);
+				S.setLocationRelativeTo(null);
+			} else if (command.equals("Add CD")) {
+				JFrame S=new AddCompactDiscToStoreScreen(store);
+				S.setVisible(true);
+				S.setLocationRelativeTo(null);
+			} else if (command.equals("View Store")) {
+				JFrame S=new StoreManagerScreen(store);
+			}
+			dispose();
+		}
+	}
 	
 	public static void main(String[] args) {
 		new StoreManagerScreen(new Store());
