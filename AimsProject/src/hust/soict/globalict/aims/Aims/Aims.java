@@ -1,5 +1,5 @@
 package hust.soict.globalict.aims.Aims;
-import hust.soict.globalict.aims.cart.Cart.*;
+import hust.soict.globalict.aims.cart.*;
 import hust.soict.globalict.aims.media.*;
 import hust.soict.globalict.aims.store.*;
 
@@ -383,7 +383,7 @@ public class Aims {
 	
 	public static void main(String[] args) {
 		List<Media> mediae = new ArrayList<Media>();
-		CompactDisc cd = new CompactDisc("The Lion King", "Animation","Roger Allers", 87, "VG", 1.23f);
+		CompactDisc cd = new CompactDisc("The Lion King", "Animation",1.23f, 87, "VG", "Roger Allers");
 		DigitalVideoDisc dvd = new  DigitalVideoDisc("Aladin", "Animation", 18.99f); 
 		Book book = new Book("Star Wars", "Science Fiction", 10.0f);
 		

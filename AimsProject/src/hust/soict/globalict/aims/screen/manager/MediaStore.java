@@ -27,7 +27,7 @@ public class MediaStore extends JPanel {
 		
 		if (media instanceof Playable) {
 			JButton playButton = new JButton("Play");
-			playButton.addActionListener(new ButtonListener());
+			playButton.addActionListener(new PlayBtnListener());
 			container.add(playButton);
 		}
 		
@@ -40,14 +40,11 @@ public class MediaStore extends JPanel {
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 	
-	private class ButtonListener implements ActionListener{
+	private class PlayBtnListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JDialog newDialog = new JDialog();
-			
-			}
+			JOptionPane.showMessageDialog(null, ((Playable) media).toString());
 		}
-	
-	
-	
+	}
+
 }

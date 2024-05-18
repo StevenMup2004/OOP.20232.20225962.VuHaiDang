@@ -9,7 +9,7 @@ public class CompactDisc extends Disc implements Playable{
 	private String artist;
 	private ArrayList<Track> tracks = new ArrayList<Track>();
 	
-	public CompactDisc(String title, String category, String director, int length, String artist, float cost) {
+	public CompactDisc(String title, String category, float cost, int length, String artist, String director) {
 		super(title, category, director, length, cost);
 		this.artist = artist;
 	}
