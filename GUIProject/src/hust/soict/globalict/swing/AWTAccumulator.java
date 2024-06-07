@@ -35,8 +35,7 @@ public class AWTAccumulator extends Frame {
 	}
 
 	private class TFInputListener implements ActionListener {
-			@Override
-		public void actionPerformed (ActionEvent evt) {
+			public void actionPerformed (ActionEvent evt) {
 			int numberIn = Integer.parseInt(tfInput.getText());
 			sum += numberIn;
 			tfInput.setText("");

@@ -55,4 +55,20 @@ public abstract class Media {
 		String s = "Book - " + this.getTitle() + " - " + this.getCategory() + ": " + this.getCost() + " $";
 	    return s;
 	}
+	public boolean filterProperty(String filter, String type) {
+        if (filter == null || filter.isEmpty()) {
+            return true;
+        } else {
+    		if (type == "title") {
+    			if (this.getTitle().toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+    				return true;
+    			}
+    		} else if (type == "id") {
+    			if(Integer.toString(this.getId()).toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+    				return true;
+    			}
+    		}
+        }
+        return false;
+	}
 }
