@@ -8,8 +8,6 @@ import hust.soict.globalict.aims.exception.LimitExceededException;
 import java.util.*;
 
 import javax.swing.JOptionPane;
-
-
 public class Aims {
 
     private static Cart cart = new Cart();
@@ -17,7 +15,7 @@ public class Aims {
     private static Scanner input = new Scanner(System.in);
 
     public static void showMenu() {
-        System.out.println("AIMS: ");
+        System.out.println("\nAIMS: ");
         System.out.println("--------------------------------");
         System.out.println("1. View store");
         System.out.println("2. Update store");
@@ -47,7 +45,7 @@ public class Aims {
 
     public static void storeMenu() {
         store.print();
-        System.out.println("Options: ");
+        System.out.println("\nOptions: ");
         System.out.println("--------------------------------");
         System.out.println("1. See a media's details");
         System.out.println("2. Add a media to cart");
@@ -69,6 +67,8 @@ public class Aims {
             storeMenu3();
         }
         else if (n == 4) {
+        	cart.print();
+        	
             cartMenu();
         }
         else if (n == 0) {
@@ -81,7 +81,7 @@ public class Aims {
     }
 
     public static void updateStore() {
-        System.out.println("Options: ");
+        System.out.println("\nOptions: ");
         System.out.println("--------------------------------");
         System.out.println("1. Add media");
         System.out.println("2. Remove media");
@@ -107,7 +107,7 @@ public class Aims {
     }
 
     public static void updateStore1() {
-        System.out.print("Enter title of the media: ");
+        System.out.print("\nEnter title of the media: ");
         String title = input.nextLine();
         System.out.print("Enter category of the media: ");
         String category = input.nextLine();
@@ -115,7 +115,7 @@ public class Aims {
         float cost = input.nextFloat();
         input.nextLine();
 
-        System.out.println("Options: ");
+        System.out.println("\nOptions: ");
         System.out.println("--------------------------------");
         System.out.println("1. DigitalVideoDisc");
         System.out.println("2. CompactDisc");
@@ -169,7 +169,7 @@ public class Aims {
     }
 
     public static void mediaDetailsMenu(Media media) {
-        System.out.println("Options: ");
+        System.out.println("\nOptions: ");
         System.out.println("--------------------------------");
         System.out.println("1. Add to cart");
         System.out.println("2. Play");
@@ -185,6 +185,7 @@ public class Aims {
             } catch (LimitExceededException e) {
                 System.err.println("LimitExceededException: " + e.getMessage());
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                
             }
             storeMenu();
@@ -219,6 +220,7 @@ public class Aims {
                 } catch (LimitExceededException e) {
                     System.err.println("LimitExceededException: " + e.getMessage());
                     e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     
                 }
                 storeMenu();
@@ -246,6 +248,7 @@ public class Aims {
                 } catch (LimitExceededException e) {
                     System.err.println("LimitExceededException: " + e.getMessage());
                     e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     
                 }
                 storeMenu();
@@ -273,11 +276,12 @@ public class Aims {
                     }
                  
                 } catch (PlayerException e) {
-                	System.out.println("ERROR in media: "+ media.toString());
+              
+                	;
+                	System.out.println("Error in media: "+ media.toString());
                 	System.err.println("PlayerException:" + e.getMessage());
                 	e.printStackTrace();
-                	
-                   
+                	JOptionPane.showMessageDialog(null, "Error in media: " + media.toString(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 storeMenu();
                 return ;
@@ -288,7 +292,7 @@ public class Aims {
     }
 
     public static void cartMenu() {
-        System.out.println("Options: ");
+        System.out.println("\nOptions: ");
         System.out.println("--------------------------------");
         System.out.println("1. Filter medias in cart");
         System.out.println("2. Sort medias in cart");
@@ -314,8 +318,9 @@ public class Aims {
         }
         else if (n == 5) {
             System.out.println("The order has been created");
-            cart.getItemsOrdered().clear();
             cart.print();
+            cart.getItemsOrdered().clear();
+            showMenu();
         }
         else if (n == 0) {
             showMenu();
@@ -327,7 +332,7 @@ public class Aims {
     }
 
     public static void cartMenu1() {
-        System.out.println("Options: ");
+        System.out.println("\nOptions: ");
         System.out.println("--------------------------------");
         System.out.println("1. Filter by id");
         System.out.println("2. Filter by title");
@@ -359,7 +364,7 @@ public class Aims {
     }
 
     public static void cartMenu2() {
-        System.out.println("Options: ");
+        System.out.println("\nOptions: ");
         System.out.println("--------------------------------");
         System.out.println("1. Sort by title");
         System.out.println("2. Sort by cost");
@@ -417,7 +422,10 @@ public class Aims {
                     }
                    
                 } catch (PlayerException e) {
-                	System.out.println("ERROR in media: "+ media.toString());
+                	
+                	
+                   JOptionPane.showMessageDialog(null, "Error in media: " + media.toString(), "Error", JOptionPane.ERROR_MESSAGE);
+                	System.out.println("Error in media: "+ media.toString());
                 	System.err.println("PlayerException:" + e.getMessage());
                 	e.printStackTrace();
         
@@ -429,26 +437,25 @@ public class Aims {
     }
 
     public static void main(String[] args) {
-    
+    	
         List<Media> mediae = new ArrayList<Media>();
         CompactDisc cd = new CompactDisc("The Lion King", "Animation", 1.23f, -87, "VG", "Roger Allers");
-        DigitalVideoDisc dvd = new DigitalVideoDisc("Aladin", "Animation", 18.99f); 
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction",
-				"George Lucas", -857, 19.95f);
-		
-        mediae.add(cd);
-        mediae.add(dvd2);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("The Lion King 2", "Animation", "Son", 5, 19.95f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("The Lion King 3", "Animation", "Son", 5, 19.95f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("The Lion King 4", "Animation", "Son", 5, 19.95f);
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc("The Lion King 5", "Animation", "Son", 5, 19.95f);
+        DigitalVideoDisc dvd6 = new DigitalVideoDisc("The Lion King 6", "Animation", "Son", 5, 19.95f);
+        DigitalVideoDisc dvd7 = new DigitalVideoDisc("The Lion King 7", "Animation", "Son", 5, 19.95f);
+
      
-        
         store.addMedia(dvd2);
+        store.addMedia(dvd3);
+        store.addMedia(dvd4);
         store.addMedia(cd);
-        store.addMedia(dvd);
+        store.addMedia(dvd5);
        
-
-        for(Media s: mediae) {
-            System.out.println(s.toString());
-        }
-
+        JOptionPane.showMessageDialog(null,"Welcome to Store" , "Welcome", JOptionPane.INFORMATION_MESSAGE);
+        
         showMenu();
     }
 }

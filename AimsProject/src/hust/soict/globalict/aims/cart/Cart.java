@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
 public class Cart {
-	public static final int MAX_NUMBERS_ORDERED = 20;
+	public static final int MAX_NUMBERS_ORDERED = 2;
 	private ObservableList<Media> itemsOrdered = 
 			FXCollections.observableArrayList();
 	
@@ -75,7 +75,7 @@ public class Cart {
 		System.out.println("***********************CART***********************\n" + "Ordered Items:");
 		int i = 0;
 		for (Media d: itemsOrdered) {
-			System.out.printf("%d. %s", ++i, d);
+			System.out.printf("%d. %s\n", ++i, d);
 		}
 		System.out.printf("\nTotal cost: %.2f\n***************************************************",
 										 this.totalCost());
