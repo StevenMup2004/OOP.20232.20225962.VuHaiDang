@@ -52,5 +52,20 @@ public class ViewStoreController {
 		}
 	}
 	
-
+	@FXML
+	void btnViewCartPressed(ActionEvent event) {
+		try {
+			final String CART_FXML_FILE_PATH = "/hust/soict/globalict/aims/screen/customer/view/Cart.fxml";
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CART_FXML_FILE_PATH));
+			fxmlLoader.setController(new CartController(cart, store));
+			Parent root = fxmlLoader.load();
+			
+			Stage nextStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			nextStage.setScene(new Scene(root));
+			nextStage.setTitle("Cart");
+			nextStage.show(); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

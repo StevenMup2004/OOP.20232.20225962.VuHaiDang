@@ -1,7 +1,5 @@
 package hust.soict.globalict.aims.screen.customer.controller;
 
-import javax.swing.JOptionPane;
-
 import hust.soict.globalict.aims.cart.Cart;
 import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.media.Playable;
@@ -46,4 +44,21 @@ public class ItemController {
     		HBox.setMargin(btnAddToCart, new Insets(0, 0, 0, 60));
     	}
     }
+    
+    @FXML
+    void btnAddToCartClicked(ActionEvent event) {
+		cart.addMedia(media);
+		Alert alert = new Alert(Alert.AlertType.INFORMATION, "Add to Cart Succesfully");
+		 alert.showAndWait();
+    }
+
+    @FXML
+    void btnPlayClicked(ActionEvent event) {
+    	
+    		Alert alert = new Alert(Alert.AlertType.INFORMATION, ((Playable) media).toString());
+            alert.showAndWait();
+    	
+    	
+    }
+    
 }
