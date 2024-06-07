@@ -90,4 +90,17 @@ public class Cart {
 		System.out.println("No match is found.");
 		return false;
 	}
+	public Media getALuckyItem() {
+		if (itemsOrdered.size() >= 5) {
+			int index = (int)(Math.random() * itemsOrdered.size());
+			Media luckyItem = itemsOrdered.get(index);
+			System.out.println("The lucky item: " + luckyItem);
+			
+			removeMedia(luckyItem);
+			System.out.println("The bill of this order is now " + totalCost());
+			
+			return luckyItem;
+		}
+		return null;
+	}
 }
