@@ -3,8 +3,6 @@ package hust.soict.globalict.aims.screen.customer.controller;
 import javax.swing.JOptionPane;
 
 import hust.soict.globalict.aims.cart.Cart;
-import hust.soict.globalict.aims.exception.LimitExceededException;
-import hust.soict.globalict.aims.exception.PlayerException;
 import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.media.Playable;
 import javafx.event.ActionEvent;

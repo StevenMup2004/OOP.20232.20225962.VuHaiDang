@@ -18,7 +18,6 @@ import javafx.scene.Node;
 public class ViewStoreController {
 	@FXML
 	private GridPane gridPane;
-
 	private Store store;
 	private Cart cart;
 	public ViewStoreController(Cart cart, Store store) {
@@ -53,8 +52,5 @@ public class ViewStoreController {
 		}
 	}
 	
-	@FXML
-	void btnViewCartPressed(ActionEvent event) {
-		
-}
+
 }
