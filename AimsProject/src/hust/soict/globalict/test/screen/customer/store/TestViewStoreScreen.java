@@ -11,9 +11,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.List;
+
+
 public class TestViewStoreScreen extends Application {
     public static Cart cart;
     private static Store store ;
@@ -34,7 +35,11 @@ public class TestViewStoreScreen extends Application {
         cart = new Cart();
         store = new Store();
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King 1", "Animation", "Son", 5, 19.95f);
-        Book book1 = new Book("Harry Potter and the Sorcerer's Stone", "Fantasy", 24.95f);
+        Book book1 = new Book("Harry Potter 1", "Fantasy", 24.55f);
+        Book book2 = new Book("Harry Potter 2", "Fantasy", 24.75f);
+        Book book3 = new Book("Harry Potter 3", "Fantasy", 25.15f);
+        Book book4 = new Book("Harry Potter 4", "Fantasy", 24.225f);
+        Book book5 = new Book("Harry Potter 5", "Fantasy", 23.95f);
         Track track1 = new Track("Beat It", 425);
         Track track2 = new Track("Thriller", 436);
         ArrayList<Track> trackList = new ArrayList<>();
@@ -52,17 +57,9 @@ public class TestViewStoreScreen extends Application {
         store.addMedia(dvd2);
         store.addMedia(dvd3);
         store.addMedia(dvd4);
+        store.addMedia(book1);
+        store.addMedia(cd1);
         
-
-        cart.addMedia(dvd1);
-        cart.addMedia(dvd2);
-        cart.addMedia(dvd3);
-        cart.addMedia(dvd4);
-        cart.addMedia(dvd5);
-        cart.addMedia(dvd6);
-        cart.addMedia(dvd7);
-        cart.addMedia(book1);
-        cart.addMedia(cd1);
         launch(args);
     }
 }
