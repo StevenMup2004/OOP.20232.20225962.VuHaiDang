@@ -42,15 +42,30 @@ public abstract class Media {
 		return cost;
 	}
 	
+	 public int compareTo(Media d) {
+	        try {
+	            int titleDiff = this.getTitle().compareTo(d.getTitle());
+	            if (titleDiff != 0) {
+	                return titleDiff;
+	            } else {
+	                return this.getCategory().compareTo(d.getCategory());
+	            }
+	        } catch (NullPointerException e) {
+	            return -1; // null is before all others
+	        }
+	    }
+	 
+	 public boolean equals(Object o) {
+	        try {
+	            return ((Media)o).getId() == this.id;
+	        } catch (NullPointerException e) {
+	            return false;
+	        } catch (ClassCastException e1) {
+	            return false;
+	        }
 
-	public boolean equals(Object o) {
-		if (o instanceof Media) {
-			Media O = (Media)o;
-			return this.title.equals(O.getTitle());
-		}
-		return false;		
-	}
-	
+	    }
+	 
 	public String toString() {
 		String s = "Book - " + this.getTitle() + " - " + this.getCategory() + ": " + this.getCost() + " $";
 	    return s;
